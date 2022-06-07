@@ -9,7 +9,8 @@ public class Loan {
     private int customer_id;
     private boolean status;
 
-    //TODO: Add fields to represent Date
+    //TODO: Add field to represent Date
+    //https://stackoverflow.com/questions/7363112/best-way-to-work-with-dates-in-android-sqlite
 
     public Loan(int id, int inventory_id, int customer_id, boolean status) {
         this.id = id;
@@ -46,8 +47,22 @@ public class Loan {
         return status;
     }
 
+    public int getStatus() {
+        if (this.status)
+            return 1;
+        else
+            return 0;
+    }
+
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public void setStatus(int status) {
+        if (status == 1)
+            this.status = true;
+        else
+            this.status = false;
     }
 
     @NonNull
