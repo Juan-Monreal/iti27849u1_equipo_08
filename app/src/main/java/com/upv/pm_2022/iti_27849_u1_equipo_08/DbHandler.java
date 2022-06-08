@@ -13,8 +13,8 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "loansData";
     private final String ownerCreate = "CREATE TABLE Owners (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "name TEXT NOT NULL," +
-            "last_name TEXT NOT NULL" +
+            "name TEXT," +
+            "last_name TEXT" +
             ")";
     private final String inventoryCreate = "CREATE TABLE Inventory ( " +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -66,6 +66,7 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(inventoryCreate);
         db.execSQL(customersCreate);
         db.execSQL(loansCreate);
+        db.execSQL("INSERT INTO Owner(name, last_name) values ('Name', 'Last name')");
     }
 
     /**
