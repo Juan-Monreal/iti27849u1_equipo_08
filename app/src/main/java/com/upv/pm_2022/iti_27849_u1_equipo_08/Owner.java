@@ -1,5 +1,7 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_08;
 
+import androidx.annotation.NonNull;
+
 public class Owner {
 
     private int id;
@@ -39,6 +41,7 @@ public class Owner {
         this.last_name = last_name;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Owner{" +
