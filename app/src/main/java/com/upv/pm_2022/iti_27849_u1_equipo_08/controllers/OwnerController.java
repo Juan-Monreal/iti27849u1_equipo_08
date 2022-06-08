@@ -27,7 +27,7 @@ public class OwnerController {
     Owner getOwner(int id){
         Owner owner;
         Cursor cursor = db.query(TABLE_NAME,
-                new String[] { "id", "name", "last_name"}, "id+?",
+                new String[] { "id", "name", "last_name"}, "id=?",
                 new String[] { String.valueOf(id)},
                 null, null, null, null);
         if (cursor != null){
