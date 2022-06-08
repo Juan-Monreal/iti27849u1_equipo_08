@@ -10,23 +10,24 @@ import androidx.annotation.Nullable;
 
 public class DbHandler extends SQLiteOpenHelper {
 
-    private String ownerCreate = "CREATE TABLE Owner (" +
+    private static final String DATABASE_NAME = "loansData";
+    private final String ownerCreate = "CREATE TABLE Owners (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "name TEXT NOT NULL," +
             "last_name TEXT NOT NULL" +
             ")";
-    private String inventoryCreate = "CREATE TABLE Inventory ( " +
+    private final String inventoryCreate = "CREATE TABLE Inventory ( " +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "name TEXT NOT NULL," +
             "owner_id INTEGER," +
             "FOREIGN KEY(owner_id) REFERENCES Owner(id)" +
             ")";
-    private String customerCreate = "CREATE TABLE Customer(" +
-            "id INTEGER PRIMARY KEY AUTOINCREMENT" +
+    private final String customersCreate = "CREATE TABLE Customers(" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "name TEXT," +
             "last_name TEXT" +
             ")";
-    private String loansCreate = "CREATE TABLE LOANS(" +
+    private final String loansCreate = "CREATE TABLE LOANS(" +
             "inventory_id INTEGER," +
             "customer_id INTEGER," +
             "status INTEGER NOT NULL," +
@@ -49,7 +50,7 @@ public class DbHandler extends SQLiteOpenHelper {
      *                newer, {@link #onDowngrade} will be used to downgrade the database
      */
     public DbHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, DATABASE_NAME, factory, version);
     }
 
 
@@ -57,11 +58,14 @@ public class DbHandler extends SQLiteOpenHelper {
      * Called when the database is created for the first time. This is where the
      * creation of tables and the initial population of the tables should happen.
      *
+     @Override
      * @param db The database.
      */
-    @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(ownerCreate);
+        db.execSQL(inventoryCreate);
+        db.execSQL(customersCreate);
+        db.execSQL(loansCreate);
     }
 
     /**
@@ -86,6 +90,10 @@ public class DbHandler extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS Loans");
+        db.execSQL("DROP TABLE IF EXISTS Inventory");
+        db.execSQL("DROP TABLE IF EXISTS Owners");
+        db.execSQL("DROP TABLE IF EXISTS Customers");
+        onCreate(db);
     }
 }
