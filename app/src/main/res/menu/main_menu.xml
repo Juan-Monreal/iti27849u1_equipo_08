@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/menu_home"
+        android:title="Home"
+        android:icon="@mipmap/ic_home"/>
+
+    <item android:id="@+id/menu_loans"
+        android:title="Loans"
+        android:icon="@mipmap/ic_loans"/>
+
+    <item android:id="@+id/menu_profile"
+        android:title="Profile "
+        android:icon="@mipmap/ic_profile"/>
+
+
+</menu>
