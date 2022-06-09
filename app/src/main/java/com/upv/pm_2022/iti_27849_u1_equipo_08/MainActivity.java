@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         mBottomNavigationn =(BottomNavigationView) findViewById(R.id.bottomNavegation);
         sw1=findViewById(R.id.id_switch);
-        frameLayout = findViewById(R.id.frameLayout);
+        //frameLayout = findViewById(R.id.frameLayout);
         mBottomNavigationn.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
