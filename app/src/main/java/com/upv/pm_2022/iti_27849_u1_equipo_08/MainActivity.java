@@ -52,13 +52,10 @@ public class MainActivity extends AppCompatActivity {
                     showSelectedFragment(new ProfileFragment());
 
                 }
-
-
-
                 return false;
             }
         });
-
+        dbHandler = new DbHandler(this, "", null, 1);
         this.read = dbHandler.getReadableDatabase();
         this.write = dbHandler.getWritableDatabase();
     }
