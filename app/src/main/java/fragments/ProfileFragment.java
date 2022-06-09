@@ -71,6 +71,7 @@ public class ProfileFragment extends Fragment {
         owner.setLast_name(lastName);
         ownerController.setDb(write);
         ownerController.updateOwner(owner);
+        Toast.makeText(getContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
     }
 
 }
