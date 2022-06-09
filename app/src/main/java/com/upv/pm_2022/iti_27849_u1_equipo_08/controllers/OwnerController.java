@@ -12,11 +12,19 @@ public class OwnerController {
     private final String TABLE_NAME = "Owners";
     private SQLiteDatabase db;
 
-    OwnerController(SQLiteDatabase db){
+    public OwnerController(SQLiteDatabase db){
         this.db = db;
     }
 
-    void addOwner(Owner owner){
+    public SQLiteDatabase getDb() {
+        return db;
+    }
+
+    public void setDb(SQLiteDatabase db) {
+        this.db = db;
+    }
+
+    public void addOwner(Owner owner){
         ContentValues values = new ContentValues();
         values.put("name", owner.getName());
         values.put("last_name", owner.getLast_name());
@@ -24,10 +32,10 @@ public class OwnerController {
         db.close();
     }
 
-    Owner getOwner(int id){
+    public Owner getOwner(int id){
         Owner owner;
         Cursor cursor = db.query(TABLE_NAME,
-                new String[] { "id", "name", "last_name"}, "id=?",
+                new String[] { "id", "name", "last_name"}, "id = ?",
                 new String[] { String.valueOf(id)},
                 null, null, null, null);
         if (cursor != null){
@@ -39,7 +47,7 @@ public class OwnerController {
             owner = null;
         return owner;
     }
-    public  int updateOwner(Owner owner){
+    public int updateOwner(Owner owner){
         ContentValues values = new ContentValues();
         values.put("name", owner.getName());
         values.put("last_name", owner.getLast_name());

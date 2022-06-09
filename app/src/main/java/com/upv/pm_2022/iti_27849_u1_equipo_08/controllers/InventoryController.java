@@ -18,6 +18,14 @@ public class InventoryController {
         this.db = db;
     }
 
+    public SQLiteDatabase getDb() {
+        return db;
+    }
+
+    public void setDb(SQLiteDatabase db) {
+        this.db = db;
+    }
+
     public List<Inventory> getAllItems() {
         List<Inventory> items = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;

@@ -27,7 +27,7 @@ public class DbHandler extends SQLiteOpenHelper {
             "name TEXT," +
             "last_name TEXT" +
             ")";
-    private final String loansCreate = "CREATE TABLE LOANS(" +
+    private final String loansCreate = "CREATE TABLE Loans (" +
             "inventory_id INTEGER," +
             "customer_id INTEGER," +
             "status INTEGER NOT NULL," +
@@ -66,7 +66,7 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(inventoryCreate);
         db.execSQL(customersCreate);
         db.execSQL(loansCreate);
-        db.execSQL("INSERT INTO Owner(name, last_name) values ('Name', 'Last name')");
+        db.execSQL("INSERT INTO Owners (name, last_name) values ('Name', 'Last name')");
     }
 
     /**
