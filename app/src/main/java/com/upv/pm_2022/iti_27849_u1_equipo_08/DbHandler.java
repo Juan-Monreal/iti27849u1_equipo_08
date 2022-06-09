@@ -14,7 +14,8 @@ public class DbHandler extends SQLiteOpenHelper {
     private final String ownerCreate = "CREATE TABLE Owners (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "name TEXT," +
-            "last_name TEXT" +
+            "last_name TEXT," +
+            "email TEXT" +
             ")";
     private final String inventoryCreate = "CREATE TABLE Inventory ( " +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -30,8 +31,8 @@ public class DbHandler extends SQLiteOpenHelper {
     private final String loansCreate = "CREATE TABLE Loans (" +
             "inventory_id INTEGER," +
             "customer_id INTEGER," +
-            "status INTEGER NOT NULL," +
-//            "loan_datetime Integer," +
+            "status INTEGER default 0," +
+            "loan_datetime datetime default current_timestamp," +
             "FOREIGN KEY(inventory_id) REFERENCES Inventory(id)," +
             "FOREIGN KEY(customer_id) REFERENCES Customer(id)" +
             ")";
@@ -51,6 +52,17 @@ public class DbHandler extends SQLiteOpenHelper {
      */
     public DbHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, version);
+    }
+    /**
+     * Create a helper object to create, open, and/or manage a database.
+     * This method always returns very quickly.  The database is not actually
+     * created or opened until one of {@link #getWritableDatabase} or
+     * {@link #getReadableDatabase} is called.
+     *
+     * @param context to use for locating paths to the the database
+     */
+    public DbHandler(Context context) {
+        super(context, DATABASE_NAME, null, 1);
     }
 
 
