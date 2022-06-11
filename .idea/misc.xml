@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/drawable/boton_redondo.xml" value="0.152" />
         <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/activity_main.xml" value="0.13" />
-        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/fragment_home.xml" value="0.11684782608695653" />
+        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/fragment_loans.xml" value="0.11684782608695653" />
         <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/fragment_profile.xml" value="0.11684782608695653" />
-        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/loans.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/layout/profile.xml" value="0.16032608695652173" />
+        <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/menu/main_menu.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo L460/Documents/NOVENO-CUATRI/SistemasMoviles/PROYECTO EN EQUIPO/iti27849u1_equipo_08/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.152" />
         <entry key="..\:/Users/ToroMax/Desktop/Cursos/projects/iti27849u1_equipo_08/app/src/main/res/layout/activity_main.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/about.xml" value="0.2359375" />

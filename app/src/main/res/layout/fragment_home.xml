@@ -1,72 +1,109 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.HomeFragment">
+    android:orientation="vertical"
+    android:layout_margin="30dp">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="50dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Outstanding loans"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="right">
 
-        android:textSize="28sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Outstanding loans"
+            android:textSize="23sp" />
 
-    <TextView
+
+        <Button
+            android:id="@+id/boton1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/boton_redondo"
+            android:backgroundTint="#3DC9DC"
+            app:icon="@drawable/add_boton"
+            app:iconSize="19dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="150dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="item"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="item"
+            android:textSize="18sp" />
 
-        android:textSize="24sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Returned"
+            android:textSize="18sp"
+            android:textAlignment="textEnd"/>
+
+    </LinearLayout>
 
     <Switch
         android:id="@+id/id_switch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:layout_marginRight="5dp"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:text="Android Development With Kotlin"
         android:checked="true"
-        android:onClick="onclick"
-        android:layout_marginLeft="20dp"
-
-        />
+        android:layout_marginLeft="20dp" />
 
     <Switch
         android:id="@+id/id_switch2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="70dp"
         android:layout_marginRight="5dp"
         android:backgroundTint="#BEEBF1"
         android:checked="true"
-        android:onClick="onclick"
         android:text="iPhone XR"
 
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
     <Switch
         android:id="@+id/id_switch3"
         android:layout_width="match_parent"
-        android:layout_height="438dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
         android:layout_marginRight="5dp"
         android:backgroundTint="#DDF2F4"
         android:checked="true"
-        android:onClick="onclick"
         android:text="Penoil"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"/>
+
+</LinearLayout>
