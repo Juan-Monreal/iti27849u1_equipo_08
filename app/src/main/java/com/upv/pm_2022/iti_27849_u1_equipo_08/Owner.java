@@ -7,14 +7,16 @@ public class Owner {
     private int id;
     private String name;
     private String last_name;
+    private String email;
 
     public Owner() {
     }
 
-    public Owner(int id, String name, String last_name) {
+    public Owner(int id, String name, String last_name, String email) {
         this.id = id;
         this.name = name;
         this.last_name = last_name;
+        this.email = email;
     }
 
     public int getId() {
@@ -41,6 +43,14 @@ public class Owner {
         this.last_name = last_name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -48,6 +58,7 @@ public class Owner {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", last_name='" + last_name + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
