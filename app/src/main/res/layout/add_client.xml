@@ -3,33 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginHorizontal="30dp"
-    tools:context=".MainActivity">
+    android:layout_margin="30dp">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="right">
 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView"
-            android:src="@drawable/profile"
-            android:layout_gravity="center_horizontal" />
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Add client"
+            android:textSize="23sp" />
     </LinearLayout>
-
-    <TextView
-        android:text="Name and Last name"
-        android:textSize="18dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/usuario" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -37,12 +27,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_weight="2">
+        android:layout_weight="7">
 
         <EditText
+            android:layout_weight="1"
             android:background="#EEEEEE"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:paddingLeft="20dp"
             android:layout_marginBottom="20dp"
             android:hint="First name"
@@ -56,9 +46,9 @@
             />
 
         <EditText
+            android:layout_weight="1"
             android:background="#EEEEEE"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:paddingLeft="20dp"
             android:layout_marginBottom="20dp"
             android:hint="Last name"
@@ -72,9 +62,9 @@
             />
 
         <EditText
+            android:layout_weight="1"
             android:background="#EEEEEE"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:paddingLeft="20dp"
             android:layout_marginBottom="20dp"
             android:hint="Email"
@@ -84,6 +74,36 @@
             android:text=""
             android:ems="10"
             android:id="@+id/email"
+            />
+
+        <EditText
+            android:layout_weight="1"
+            android:background="#EEEEEE"
+            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Career"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:ems="10"
+            android:id="@+id/career"
+            />
+
+        <EditText
+            android:layout_weight="1"
+            android:background="#EEEEEE"
+            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Group"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:ems="10"
+            android:id="@+id/group"
             />
 
     </LinearLayout>
@@ -101,6 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:paddingVertical="15dp"
             android:text="Save" />
     </LinearLayout>
 
