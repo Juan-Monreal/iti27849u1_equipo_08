@@ -19,6 +19,16 @@ public class Loan {
         this.status = status;
     }
 
+    public Loan(int id, int inventory_id, int customer_id, int status) {
+        this.id = id;
+        this.inventory_id = inventory_id;
+        this.customer_id = customer_id;
+        if (status == 1)
+            this.status = true;
+        else
+            this.status = false;
+    }
+
     public int getId() {
         return id;
     }
