@@ -120,4 +120,32 @@ public class CustomerController {
         );
         db.close();
     }
+
+    /**
+     * Uses the where clause with like clause with the columns name and last_name
+     * to find all the similar who contains the string provided
+     *
+     * @param like String to be used and obtain similar
+     * @return a new List of Customers who matches the provided string
+     */
+    public List<Customer> findCustomerByNameOrLastName(String like){
+        List<Customer> customers = new ArrayList<>();
+        String query = "SELECT * FROM " + TABLE_NAME +
+                " WHERE " +
+                "name LIKE " + "%" + like + "%" +
+                " OR " + "last_name LIKE " + "%" + like + "%";
+        try (Cursor cursor = db.rawQuery(query, null)) {
+            if (cursor.moveToFirst()){
+                do {
+                    Customer customer = new Customer(
+                        Integer.parseInt(cursor.getString(0)),
+                        cursor.getString(1),
+                        cursor.getString(2)
+                    );
+                    customers.add(customer);
+                }while (cursor.moveToNext());
+            }
+        }
+        return customers;
+    }
 }
