@@ -34,6 +34,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        addLoan = view.findViewById(R.id.addLoan);
+
         read = new DbHandler(getActivity()).getReadableDatabase();
         write = new DbHandler(getActivity()).getWritableDatabase();
 
