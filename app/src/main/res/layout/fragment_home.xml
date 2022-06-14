@@ -24,7 +24,7 @@
 
 
         <Button
-            android:id="@+id/boton1"
+            android:id="@+id/addLoan"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/boton_redondo"

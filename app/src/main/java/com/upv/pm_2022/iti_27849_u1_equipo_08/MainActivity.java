@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         dbHandler = new DbHandler(this, "", null, 1);
         this.read = dbHandler.getReadableDatabase();
         this.write = dbHandler.getWritableDatabase();
+        showSelectedFragment(new HomeFragment());
     }
     private void showSelectedFragment(Fragment fragment){
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
@@ -74,16 +75,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void todo(){
-        OwnerController ownerController = new OwnerController(read);
-        Owner owner = ownerController.getOwner(1);
-        System.out.println(owner.toString());
-        ownerController.setDb(write);
-        owner.setName("Owner Name");
-        owner.setLast_name("Owner LastName");
-        ownerController.updateOwner(owner);
-        ownerController.setDb(read);
-        Owner owner1 = ownerController.getOwner(1);
-        System.out.println("Owner editado \n" + owner1.toString());
-    }
 }

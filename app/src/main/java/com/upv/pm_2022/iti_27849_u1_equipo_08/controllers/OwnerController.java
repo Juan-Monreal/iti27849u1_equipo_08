@@ -28,6 +28,7 @@ public class OwnerController {
         ContentValues values = new ContentValues();
         values.put("name", owner.getName());
         values.put("last_name", owner.getLast_name());
+        values.put("email", owner.getEmail());
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
@@ -35,14 +36,15 @@ public class OwnerController {
     public Owner getOwner(int id){
         Owner owner;
         Cursor cursor = db.query(TABLE_NAME,
-                new String[] { "id", "name", "last_name"}, "id = ?",
+                new String[] { "id", "name", "last_name", "email"}, "id = ?",
                 new String[] { String.valueOf(id)},
                 null, null, null, null);
         if (cursor != null){
             cursor.moveToFirst();
             owner = new Owner(Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
-                    cursor.getString(2));
+                    cursor.getString(2),
+                    cursor.getString(3));
         }else
             owner = null;
         return owner;
@@ -51,6 +53,7 @@ public class OwnerController {
         ContentValues values = new ContentValues();
         values.put("name", owner.getName());
         values.put("last_name", owner.getLast_name());
+        values.put("email", owner.getEmail());
         return db.update(TABLE_NAME, values, "id = ?",
                 new String[] { String.valueOf(owner.getId())});
     }

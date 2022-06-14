@@ -38,6 +38,7 @@ public class ProfileFragment extends Fragment {
 
         inputName = view.findViewById(R.id.firstName);
         inputLastName = view.findViewById(R.id.lastName);
+        inputEmail = view.findViewById(R.id.email);
         btnSave = view.findViewById(R.id.saveButton);
 
         read = new DbHandler(getActivity()).getReadableDatabase();
@@ -49,26 +50,37 @@ public class ProfileFragment extends Fragment {
 
         inputName.setText(owner.getName());
         inputLastName.setText(owner.getLast_name());
+        inputEmail.setText(owner.getEmail());
 
         btnSave.setOnClickListener( v -> {
             String name = inputName.getText().toString();
             String lastName = inputLastName.getText().toString();
+            String email = inputEmail.getText().toString();
 
-            if (name.isEmpty() || lastName.isEmpty()){
+            if (name.isEmpty() || lastName.isEmpty() || email.isEmpty()){
 //                Toast.makeText(getContext(), "Please fill the profile", Toast.LENGTH_SHORT).show();
                 name = "";
                 lastName = "";
+                email = "";
             }
-            saveData(name, lastName);
+            saveData(name, lastName, email);
         });
 
-        return inflater.inflate(R.layout.profile, container, false);
+        return view;
 
     }
 
-    private void saveData(String name, String lastName) {
+    /**
+     * Saves the Data of the actual Owner
+     *
+     * @param name taken from the editText
+     * @param lastName taken from the editText
+     * @param email taken from the editText
+     */
+    private void saveData(String name, String lastName, String email) {
         owner.setName(name);
         owner.setLast_name(lastName);
+        owner.setEmail(email);
         ownerController.setDb(write);
         ownerController.updateOwner(owner);
         Toast.makeText(getContext(), "Profile Updated", Toast.LENGTH_SHORT).show();

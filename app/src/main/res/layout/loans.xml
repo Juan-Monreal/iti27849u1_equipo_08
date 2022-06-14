@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:layout_marginLeft="24dp"
         android:fontFamily="sans-serif-black"
-        android:text="Outstanding loans"
+        android:text="Loans"
         android:textSize="28sp" />
 
     <LinearLayout
