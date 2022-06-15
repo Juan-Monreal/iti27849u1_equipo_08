@@ -8,7 +8,9 @@
     <string name="str_items">Items</string>
     <string name="str_profile">Profile</string>
     <string name="str_loans">Loans</string>
-    <string name="str_add_clients">Add clients</string>
+    <string name="str_add_clients">Add client</string>
+    <string name="str_add_item">Add item</string>
+    <string name="str_add_loan">Add loan</string>
     <string name="str_back">Back</string>
     <string name="str_import">Import</string>
     <string name="str_export">Export</string>

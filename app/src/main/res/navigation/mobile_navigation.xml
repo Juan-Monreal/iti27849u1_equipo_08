@@ -9,7 +9,21 @@
         android:id="@+id/navigation_home"
         android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.HomeFragment"
         android:label="@string/str_home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_add_loan"
+            app:destination="@+id/navigation_add_loan"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_loan"
+        android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.AddLoanFragment"
+        android:label="@string/str_add_loan"
+        tools:layout="@layout/add_loan">
+        <action
+            android:id="@+id/action_add_loan_to_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_loans"
@@ -47,6 +61,20 @@
         android:id="@+id/navigation_items"
         android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.ItemsFragment"
         android:label="@string/str_items"
-        tools:layout="@layout/items"/>
+        tools:layout="@layout/items">
+        <action
+            android:id="@+id/action_items_to_add_item"
+            app:destination="@id/navigation_add_items" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_items"
+        android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.AddItemFragment"
+        android:label="@string/str_add_item"
+        tools:layout="@layout/add_item">
+        <action
+            android:id="@+id/action_add_item_to_items"
+            app:destination="@id/navigation_items" />
+    </fragment>
 
 </navigation>

@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    private Button addLoan;
+    private Button btnAddLoan;
     private SQLiteDatabase read, write;
 
     public HomeFragment() {
@@ -52,14 +53,21 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        addLoan = view.findViewById(R.id.addLoan);
+        btnAddLoan = view.findViewById(R.id.btnAddLoan);
+
+        btnAddLoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_home_to_add_loan);
+            }
+        });
 
         read = new DbHandler(getActivity()).getReadableDatabase();
         write = new DbHandler(getActivity()).getWritableDatabase();
 
-        addLoan.setOnClickListener( v ->{
+        /* btnAddLoan.setOnClickListener( v ->{
             Toast.makeText(getContext(), "TODO:ADD LOAN", Toast.LENGTH_SHORT).show();
-        });
+        }); */
 
 
         return view;

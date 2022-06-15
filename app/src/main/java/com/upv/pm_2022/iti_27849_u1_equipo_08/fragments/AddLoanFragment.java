@@ -4,20 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.upv.pm_2022.iti_27849_u1_equipo_08.R;
-import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.ItemsBinding;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.AddLoanBinding;
 
-public class ItemsFragment extends Fragment {
+public class AddLoanFragment extends Fragment {
 
-    private ItemsBinding binding;
-    private Button btnAddItems;
+    private AddLoanBinding binding;
 
-    public ItemsFragment() {
+    private ImageButton btnBack;
+
+    public AddLoanFragment() {
         // Required empty public constructor
     }
 
@@ -26,15 +27,16 @@ public class ItemsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // DIFERENTE FORMA PARA SACAR LOS DATOS DE LA INTERFAZ
-        binding = ItemsBinding.inflate(inflater, container, false);
+        binding = AddLoanBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        btnAddItems = view.findViewById(R.id.btnAddItem);
+        btnBack = view.findViewById(R.id.btn_back);
 
-        btnAddItems.setOnClickListener(new View.OnClickListener() {
+        // Botón para regresar al fragent loans
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(ItemsFragment.this).navigate(R.id.action_items_to_add_item);
+                NavHostFragment.findNavController(AddLoanFragment.this).navigate(R.id.action_add_loan_to_home);
             }
         });
 
