@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_loans, R.id.navigation_profile)
+                R.id.navigation_home, R.id.navigation_loans, R.id.navigation_profile,
+                R.id.navigation_clients, R.id.navigation_items)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -101,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutUs.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_import_export) {
+            Intent intent = new Intent(this, Import_Export.class);
             startActivity(intent);
             return true;
         }

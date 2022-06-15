@@ -14,5 +14,12 @@
         android:title="@string/str_profile"
         android:icon="@drawable/ic_user"/>
 
+    <item android:id="@+id/navigation_clients"
+        android:title="@string/str_clients"
+        android:icon="@drawable/ic_clients"/>
+
+    <item android:id="@+id/navigation_items"
+        android:title="@string/str_items"
+        android:icon="@drawable/ic_book"/>
 
 </menu>

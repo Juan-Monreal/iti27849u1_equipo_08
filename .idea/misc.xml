@@ -22,11 +22,18 @@
         <entry key="..\:/Users/ToroMax/Desktop/Cursos/projects/iti27849u1_equipo_08/app/src/main/res/layout/loans.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/boton_redondo.xml" value="0.1615" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1615" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/ic_back.xml" value="0.175" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/ic_book.xml" value="0.168" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/ic_clients.xml" value="0.168" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/ic_export.xml" value="0.175" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/ic_import.xml" value="0.175" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/round_button.xml" value="0.1615" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/drawable/round_img.xml" value="0.1615" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/about.xml" value="0.2359375" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/activity_about_us.xml" value="0.2" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/activity_import_export.xml" value="0.25" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/add_client.xml" value="0.25" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/clients.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/fragment_home.xml" value="0.24564102564102563" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/fragment_loans.xml" value="0.24615384615384617" />
@@ -34,6 +41,7 @@
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/items.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/loans.xml" value="0.2359375" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/layout/profile.xml" value="0.2359375" />
+        <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/menu/main_menu.xml" value="0.11388888888888889" />
         <entry key="..\:/Users/coron/AndroidStudioProjects/iti27849u1_equipo_08/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>

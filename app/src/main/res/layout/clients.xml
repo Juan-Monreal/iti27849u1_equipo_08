@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_margin="30dp">
 
@@ -23,7 +24,7 @@
             android:textSize="23sp" />
 
         <Button
-            android:id="@+id/addLoan"
+            android:id="@+id/btnAddClient"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/round_button"

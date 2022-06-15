@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Import_Export"
+    android:layout_margin="30dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/str_import_export"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="5"
+        android:layout_margin="40dp">
+
+        <Button
+            android:id="@+id/btnImport"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:text="@string/str_import"
+            android:drawableLeft="@drawable/ic_import"/>
+
+        <Button
+            android:id="@+id/btnExport"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_export"
+            android:text="@string/str_export" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/str_back"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:drawableLeft="@drawable/ic_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
+</LinearLayout>

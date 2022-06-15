@@ -23,4 +23,30 @@
         android:label="@string/str_profile"
         tools:layout="@layout/profile"/>
 
+    <fragment
+        android:id="@+id/navigation_clients"
+        android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.ClientsFragment"
+        android:label="@string/str_clients"
+        tools:layout="@layout/clients">
+        <action
+            android:id="@+id/action_clients_to_add_clients"
+            app:destination="@id/navigation_add_clients" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_clients"
+        android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.AddClientsFragment"
+        android:label="@string/str_add_clients"
+        tools:layout="@layout/add_client">
+        <action
+            android:id="@+id/action_add_clients_to_clients"
+            app:destination="@id/navigation_clients" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_items"
+        android:name="com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.ItemsFragment"
+        android:label="@string/str_items"
+        tools:layout="@layout/items"/>
+
 </navigation>
