@@ -22,7 +22,7 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="20dp"
         android:hint="Status"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:layout_height="0dp"
         android:inputType="text"
         android:text=""
@@ -43,11 +43,35 @@
         android:ems="10"
         android:inputType="date" />
 
+    <ListView
+        android:id="@+id/lvCustomers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="20dp"
+        android:background="#EEEEEE"
+        android:ems="10"
+        />
+
+    <ListView
+        android:id="@+id/lvInventory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="20dp"
+        android:background="#EEEEEE"
+        android:ems="10"
+        android:scrollbars="vertical"
+        />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_weight="2"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        >
 
         <Button
             android:id="@+id/btnSave"
