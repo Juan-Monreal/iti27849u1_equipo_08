@@ -15,6 +15,11 @@ public class Inventory {
         this.owner_id = owner_id;
     }
 
+    public Inventory(String name, int owner_id) {
+        this.name = name;
+        this.owner_id = owner_id;
+    }
+
     public int getId() {
         return id;
     }
