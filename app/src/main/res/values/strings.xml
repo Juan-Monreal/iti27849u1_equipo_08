@@ -2,4 +2,11 @@
     <string name="app_name">iti-27849-u1_equipo_08</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_home">Home</string>
+    <string name="str_about">About us</string>
+    <string name="str_clients">Clients</string>
+    <string name="str_items">Items</string>
+    <string name="str_profile">Profile</string>
+    <string name="str_loans">Loans</string>
+    <string name="str_add_clients">Add clients</string>
 </resources>

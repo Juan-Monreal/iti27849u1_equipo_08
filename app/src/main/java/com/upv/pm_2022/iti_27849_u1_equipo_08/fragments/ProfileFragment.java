@@ -1,4 +1,4 @@
-package fragments;
+package com.upv.pm_2022.iti_27849_u1_equipo_08.fragments;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -16,9 +16,13 @@ import com.upv.pm_2022.iti_27849_u1_equipo_08.DbHandler;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.Owner;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.R;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.OwnerController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.FragmentHomeBinding;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.ProfileBinding;
 
 
 public class ProfileFragment extends Fragment {
+
+    private ProfileBinding binding;
 
     private EditText inputName, inputLastName, inputEmail;
     private Button btnSave;
@@ -33,8 +37,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // NUEVA FORMA
+        binding = ProfileBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.profile, container, false);
+        // View view = inflater.inflate(R.layout.profile, container, false);
 
         inputName = view.findViewById(R.id.firstName);
         inputLastName = view.findViewById(R.id.lastName);
@@ -84,6 +92,12 @@ public class ProfileFragment extends Fragment {
         ownerController.setDb(write);
         ownerController.updateOwner(owner);
         Toast.makeText(getContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
 }

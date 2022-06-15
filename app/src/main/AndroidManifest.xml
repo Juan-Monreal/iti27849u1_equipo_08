@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Iti27849u1_equipo_08">
         <activity
+            android:name=".AboutUs"
+            android:exported="true"
+            android:label="@string/str_about"/>
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Iti27849u1_equipo_08.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

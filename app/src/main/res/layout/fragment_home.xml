@@ -27,7 +27,7 @@
             android:id="@+id/addLoan"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/boton_redondo"
+            android:background="@drawable/round_button"
             android:backgroundTint="#3DC9DC"
             app:icon="@drawable/add_boton"
             app:iconSize="19dp" />

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.upv.pm_2022.iti_27849_u1_equipo_08.MainActivity">
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="@string/str_about"
+        app:showAsAction="ifRoom" />
+</menu>

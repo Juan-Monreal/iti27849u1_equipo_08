@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="30dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".AboutUs">
 
     <TextView
         android:id="@+id/tv_about"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:textColor="@color/black"
-        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-        android:textSize="16sp"
-        android:gravity="fill_vertical"
-        android:justificationMode="inter_word"/>
+        android:layout_weight="1"
+        android:textColor="@color/purple_700"
+        android:textStyle="bold"
+        android:text="Team members"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textAlignment="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.7"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/img_fer" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -63,7 +65,7 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:textAlignment="center"
-                    android:text="Estudiante de Ingeniería en Tecnologías de la Información"/>
+                    android:text="Student of Engineering in Information Technology"/>
 
             </LinearLayout>
 
@@ -81,7 +83,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.7"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/img_diana" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -107,7 +109,7 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:textAlignment="center"
-                    android:text="Estudiante de Ingeniería en Tecnologías de la Información"/>
+                    android:text="Student of Engineering in Information Technology"/>
 
             </LinearLayout>
 
@@ -125,7 +127,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.7"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/img_gaby" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -151,7 +153,7 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:textAlignment="center"
-                    android:text="Estudiante de Ingeniería en Tecnologías de la Información"/>
+                    android:text="Student of Engineering in Information Technology"/>
 
             </LinearLayout>
 
@@ -169,7 +171,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.7"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/img_juanc" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -195,7 +197,7 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:textAlignment="center"
-                    android:text="Estudiante de Ingeniería en Tecnologías de la Información"/>
+                    android:text="Student of Engineering in Information Technology"/>
 
             </LinearLayout>
 
@@ -213,7 +215,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.7"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/img_carlos" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -239,12 +241,23 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:textAlignment="center"
-                    android:text="Estudiante de Ingeniería en Tecnologías de la Información"/>
+                    android:text="Student of Engineering in Information Technology"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_margin="15dp"
+        android:layout_gravity="right"
+        android:background="@drawable/round_button"/>
+
 
 </LinearLayout>
