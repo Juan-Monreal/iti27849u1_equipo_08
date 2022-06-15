@@ -62,7 +62,7 @@ public class AddItemFragment extends Fragment {
             }else {
                 Inventory inventory = new Inventory(name, owner.getId());
                 controller.addItem(inventory);
-                Toast.makeText(getContext(), "Item Added sucessfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Item Added successfully!", Toast.LENGTH_SHORT).show();
                 txtItemName.setText("");
             }
         });

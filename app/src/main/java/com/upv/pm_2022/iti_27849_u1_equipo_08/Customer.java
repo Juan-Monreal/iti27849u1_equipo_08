@@ -16,6 +16,11 @@ public class Customer {
         this.last_name = last_name;
     }
 
+    public Customer(String name, String last_name) {
+        this.name = name;
+        this.last_name = last_name;
+    }
+
     public int getId() {
         return id;
     }
