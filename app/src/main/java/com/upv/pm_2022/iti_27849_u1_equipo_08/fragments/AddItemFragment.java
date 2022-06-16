@@ -58,7 +58,7 @@ public class AddItemFragment extends Fragment {
         btnSave.setOnClickListener( v -> {
             String name = txtItemName.getText().toString();
             if (name.isEmpty()){
-                Toast.makeText(getContext(), "Please input a valid name", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter valid data", Toast.LENGTH_SHORT).show();
             }else {
                 Inventory inventory = new Inventory(name, owner.getId());
                 controller.addItem(inventory);

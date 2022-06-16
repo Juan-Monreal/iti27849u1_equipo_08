@@ -68,7 +68,7 @@ public class AddClientsFragment extends Fragment {
             String name = firstName.getText().toString();
             String last = lastName.getText().toString();
             if (name.isEmpty() || last.isEmpty()){
-                Toast.makeText(getContext(), "Please input valid data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter valid data", Toast.LENGTH_SHORT).show();
             } else {
                 Customer customer = new Customer(name, last);
                 controller.addCustomer(customer);
