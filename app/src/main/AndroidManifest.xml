@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Iti27849u1_equipo_08">
         <activity
-            android:name=".Import_Export"
+            android:name=".ImportExport"
             android:exported="false" />
         <activity
             android:name=".AboutUs"

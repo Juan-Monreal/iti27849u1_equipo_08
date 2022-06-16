@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Import_Export extends AppCompatActivity {
+public class ImportExport extends AppCompatActivity {
 
     private Button btnImport;
     private Button btnExport;
@@ -21,12 +21,7 @@ public class Import_Export extends AppCompatActivity {
         btnExport = findViewById(R.id.btnExport);
         btnBack = findViewById(R.id.btnBack);
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        btnBack.setOnClickListener(view -> onBackPressed());
 
     }
 }

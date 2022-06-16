@@ -1,9 +1,6 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_08;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -14,17 +11,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.HomeFragment;
-import com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.LoansFragment;
-import com.upv.pm_2022.iti_27849_u1_equipo_08.fragments.ProfileFragment;
-
 import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -107,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_import_export) {
-            Intent intent = new Intent(this, Import_Export.class);
+            Intent intent = new Intent(this, ImportExport.class);
             startActivity(intent);
             return true;
         }
