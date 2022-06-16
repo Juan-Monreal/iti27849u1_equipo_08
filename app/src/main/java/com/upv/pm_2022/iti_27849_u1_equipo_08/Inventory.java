@@ -53,4 +53,11 @@ public class Inventory {
                 ", owner_id=" + owner_id +
                 '}';
     }
+    public String toExport(){
+        return "(" +
+                id + "," +
+                "'" + name +"'," +
+                owner_id +
+                ")";
+    }
 }

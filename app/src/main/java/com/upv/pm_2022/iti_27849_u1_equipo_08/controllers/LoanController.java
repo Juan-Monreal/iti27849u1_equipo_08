@@ -3,6 +3,9 @@ package com.upv.pm_2022.iti_27849_u1_equipo_08.controllers;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import com.upv.pm_2022.iti_27849_u1_equipo_08.Loan;
 
@@ -39,6 +42,7 @@ public class LoanController {
      *
      * @return List of Loans of the current loans in the db
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public List<Loan> getAll(){
         List<Loan> loans = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -49,7 +53,8 @@ public class LoanController {
                         Integer.parseInt(cursor.getString(0)),
                         Integer.parseInt(cursor.getString(1)),
                         Integer.parseInt(cursor.getString(2)),
-                        Integer.parseInt(cursor.getString(3))
+                        Integer.parseInt(cursor.getString(3)),
+                        cursor.getString(4)
                     );
                     loans.add(loan);
                 }while (cursor.moveToNext());
@@ -63,6 +68,7 @@ public class LoanController {
      *
      * @param loan new Object to be stored
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void addLoan(Loan loan){
         ContentValues values = new ContentValues();
         values.put("inventory_id", loan.getInventory_id());
@@ -78,6 +84,7 @@ public class LoanController {
      * @param id of the loan be searched
      * @return null if empty | Loan Object
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Loan getLoan(int id){
         Loan loan;
         Cursor cursor = db.query(TABLE_NAME,
@@ -92,7 +99,8 @@ public class LoanController {
                     Integer.parseInt(cursor.getString(0)),
                     Integer.parseInt(cursor.getString(1)),
                     Integer.parseInt(cursor.getString(2)),
-                    Integer.parseInt(cursor.getString(3))
+                    Integer.parseInt(cursor.getString(3)),
+                    cursor.getString(4)
             );
         } else
             loan = null;
@@ -104,11 +112,13 @@ public class LoanController {
      * @param loan instance to be updated
      * @return the update result
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public int updateLoan(Loan loan){
         ContentValues values = new ContentValues();
         values.put("inventory_id", loan.getInventory_id());
         values.put("customer_id", loan.getCustomer_id());
         values.put("status", loan.getStatus());
+        values.put("loan_datetime", loan.getLoan_datetimeAsString());
         return db.update(TABLE_NAME, values, "id = ?",
                 new String[] { String.valueOf(loan.getId())}
         );
@@ -118,6 +128,7 @@ public class LoanController {
      * Delete the selected loan instance using the id
      * @param loan instace to be deleted from the resources
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void deleteLoan(Loan loan) {
         db.delete(TABLE_NAME, "id = ?",
                 new String[] { String.valueOf(loan.getId())}
@@ -132,6 +143,7 @@ public class LoanController {
      * @param like String to be used and obtain similar
      * @return a new List of Loans who matches the provided string
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public List<Loan> findLoanByNameOrLastName(String like){
         //TODO: Change query to use names and obtain products
         List<Loan> loans = new ArrayList<>();
@@ -146,7 +158,8 @@ public class LoanController {
                             Integer.parseInt(cursor.getString(0)),
                             Integer.parseInt(cursor.getString(1)),
                             Integer.parseInt(cursor.getString(2)),
-                            Integer.parseInt(cursor.getString(3))
+                            Integer.parseInt(cursor.getString(3)),
+                            cursor.getString(4)
                     );
                     loans.add(loan);
                 }while (cursor.moveToNext());

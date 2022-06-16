@@ -61,4 +61,13 @@ public class Owner {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    public String toExport(){
+        return "(" +
+                id + "," +
+                "'" + name +"'," +
+                "'" + last_name +"'," +
+                "'" + email +"'" +
+                ")";
+    }
 }

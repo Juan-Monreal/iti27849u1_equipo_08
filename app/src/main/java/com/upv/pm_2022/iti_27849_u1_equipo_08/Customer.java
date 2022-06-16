@@ -54,4 +54,12 @@ public class Customer {
                 ", last_name='" + last_name + '\'' +
                 '}';
     }
+
+    public String toExport(){
+        return "(" +
+                id + "," +
+                "'" + name +"'," +
+                "'" + last_name +"'" +
+                ")";
+    }
 }

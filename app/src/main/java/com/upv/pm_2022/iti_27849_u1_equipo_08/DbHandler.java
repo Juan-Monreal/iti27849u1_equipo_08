@@ -8,6 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.CustomerController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.InventoryController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.LoanController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.OwnerController;
+
 public class DbHandler extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "loansData";
@@ -122,7 +127,11 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM Customers");
     }
 
-    private void exportDatabase(){
+    private void exportDatabaseRows(){
+        CustomerController customerController = new CustomerController(this.getReadableDatabase());
+        InventoryController inventoryController = new InventoryController(this.getReadableDatabase());
+        LoanController loanController = new LoanController(this.getReadableDatabase());
+        OwnerController ownerController = new OwnerController(this.getReadableDatabase());
 
     }
 }
