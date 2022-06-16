@@ -184,10 +184,22 @@ public class DbHandler extends SQLiteOpenHelper {
             bufferedWriter.write(queryCustomer);
             bufferedWriter.write(queryInventory);
             bufferedWriter.write(queryLoans);
+            bufferedWriter.close();
         }catch (IOException ioException){
             //TODO: HANDLE
             ioException.printStackTrace();
         }
         return file.getAbsolutePath().toString();
+    }
+
+    public void importDb(String content){
+        cleanTables();
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] contents = content.split("\\r?\\n");
+        for (String cont: contents) {
+            db.execSQL(cont);
+        }
+        db.close();
+
     }
 }
