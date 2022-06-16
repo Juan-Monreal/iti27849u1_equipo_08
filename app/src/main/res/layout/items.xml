@@ -31,21 +31,21 @@
             app:iconSize="19dp" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/newItem"
-        android:visibility="invisible"
-        android:layout_weight="0.5"
-        android:background="#EEEEEE"
-        android:layout_width="match_parent"
-        android:paddingLeft="20dp"
-        android:layout_marginBottom="20dp"
-        android:hint="Item"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:ems="10"
-        />
+<!--    <EditText-->
+<!--        android:id="@+id/newItem"-->
+<!--        android:visibility="invisible"-->
+<!--        android:layout_weight="0.5"-->
+<!--        android:background="#EEEEEE"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:hint="Item"-->
+<!--        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text=""-->
+<!--        android:ems="10"-->
+<!--        />-->
 
     <ListView
         android:id="@+id/itemsList"
