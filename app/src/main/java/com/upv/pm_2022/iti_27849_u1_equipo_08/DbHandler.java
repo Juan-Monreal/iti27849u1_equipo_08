@@ -109,4 +109,20 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Customers");
         onCreate(db);
     }
+
+    /**
+     * Utility function to delete all rows from the tables in the database
+     * Using the clause DELETE
+     */
+    private void cleanTables(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM Loans");
+        db.execSQL("DELETE FROM Inventory");
+        db.execSQL("DELETE FROM Owners");
+        db.execSQL("DELETE FROM Customers");
+    }
+
+    private void exportDatabase(){
+
+    }
 }

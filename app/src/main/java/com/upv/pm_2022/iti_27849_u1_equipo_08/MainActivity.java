@@ -1,23 +1,32 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_08;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int REQUEST_ID_READ_PERMISSION = 100;
+    private static final int REQUEST_ID_WRITE_PERMISSION = 200;
 
     private BottomNavigationView mBottomNavigationn;
     private Switch sw1;
@@ -30,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        askPermissionOnly();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
@@ -105,6 +116,66 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Utility function to request users permissions from users
+     * when the application is installed
+     */
+    private void askPermissionOnly() {
+        this.askPermission(REQUEST_ID_WRITE_PERMISSION,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        this.askPermission(REQUEST_ID_READ_PERMISSION,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+    }
+
+     // With Android Level >= 23, you have to ask the user
+    // for permission with device (For example read/write data on the device).
+    private boolean askPermission(int requestId, String permissionName) {
+        if (android.os.Build.VERSION.SDK_INT >= 23) {
+
+            // Check if we have permission
+            int permission = ActivityCompat.checkSelfPermission(this, permissionName);
+
+
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                // If don't have permission so prompt the user.
+                this.requestPermissions(
+                        new String[]{permissionName},
+                        requestId
+                );
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // When you have the request results
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //
+        // Note: If request is cancelled, the result arrays are empty.
+        if (grantResults.length > 0) {
+            switch (requestCode) {
+                case REQUEST_ID_READ_PERMISSION: {
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        Toast.makeText(getApplicationContext(), "Read permission granted!!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                case REQUEST_ID_WRITE_PERMISSION: {
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        Toast.makeText(getApplicationContext(), "Write permission granted!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Permission Cancelled!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     /*
     private void showSelectedFragment(Fragment fragment){
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
@@ -120,5 +191,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, " no activo", Toast.LENGTH_SHORT).show();
         }
     } */
+
 
 }
