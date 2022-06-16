@@ -4,17 +4,26 @@ import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+import android.os.Environment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.CustomerController;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.InventoryController;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.LoanController;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.OwnerController;
 
-public class DbHandler extends SQLiteOpenHelper {
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalTime;
 
+public class DbHandler extends SQLiteOpenHelper {
+    private String PATH = Environment.getExternalStorageDirectory().toString();
     private static final String DATABASE_NAME = "loansData";
     private final String ownerCreate = "CREATE TABLE Owners (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -127,11 +136,58 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM Customers");
     }
 
-    private void exportDatabaseRows(){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public String exportDatabaseRows(){
+        String output = "";
         CustomerController customerController = new CustomerController(this.getReadableDatabase());
         InventoryController inventoryController = new InventoryController(this.getReadableDatabase());
-        LoanController loanController = new LoanController(this.getReadableDatabase());
         OwnerController ownerController = new OwnerController(this.getReadableDatabase());
+        LoanController loanController = new LoanController(this.getReadableDatabase());
 
+
+        String query = "INSERT INTO ";
+        String values = " VALUES ";
+        String queryCustomer = query + "Customers" + values;
+        for (Customer customer: customerController.getAll()) {
+            queryCustomer += customer.toExport() + ",";
+        }
+        queryCustomer = queryCustomer.substring(0, queryCustomer.length()-1) + "\n";
+
+        String queryOwner = query + "Owners" + values;
+        queryOwner += ownerController.getOwner(1).toExport() + "\n";
+
+        String queryInventory = query + "Inventory" + values;
+        for (Inventory inventory: inventoryController.getAllItems()) {
+            queryInventory += inventory.toExport() + ",";
+        }
+        queryInventory = queryInventory.substring(0, queryInventory.length()-1) + "\n";
+
+        String queryLoans = query + "Loans" + values;
+        for (Loan loan: loanController.getAll()) {
+            queryLoans += loan.toExport() + ",";
+        }
+        queryLoans = queryLoans.substring(0, queryLoans.length()-1) + "\n";
+        return createBackUpFile(queryOwner, queryCustomer, queryInventory, queryLoans);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String createBackUpFile(String queryOwner, String queryCustomer, String queryInventory, String queryLoans) {
+        File file = null;
+        try {
+            file = new File(PATH + "/" + DATABASE_NAME + "_backup_" +
+                    LocalTime.now().toString() + ".txt");
+            if (!file.exists())
+                file.createNewFile();
+            FileWriter fileWriter = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(queryOwner);
+            bufferedWriter.write(queryCustomer);
+            bufferedWriter.write(queryInventory);
+            bufferedWriter.write(queryLoans);
+        }catch (IOException ioException){
+            //TODO: HANDLE
+            ioException.printStackTrace();
+        }
+        return file.getAbsolutePath().toString();
     }
 }
