@@ -34,72 +34,77 @@
 
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        <ListView
+        android:id="@+id/loansList"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="7"
+        android:layout_width="match_parent">
+    </ListView>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:orientation="horizontal">-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="24dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="item"
-            android:textSize="18sp" />
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_marginLeft="24dp"-->
+<!--            android:fontFamily="sans-serif-medium"-->
+<!--            android:text="item"-->
+<!--            android:textSize="18sp" />-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="24dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Returned"
-            android:textSize="18sp"
-            android:textAlignment="textEnd"/>
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_marginLeft="24dp"-->
+<!--            android:fontFamily="sans-serif-medium"-->
+<!--            android:text="Returned"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textAlignment="textEnd"/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
-    <Switch
-        android:id="@+id/id_switch"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="5dp"
-        android:textSize="16dp"
-        android:text="Android Development With Kotlin"
-        android:checked="true"
-        android:layout_marginLeft="20dp" />
+<!--    <Switch-->
+<!--        android:id="@+id/id_switch"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        android:textSize="16dp"-->
+<!--        android:text="Android Development With Kotlin"-->
+<!--        android:checked="true"-->
+<!--        android:layout_marginLeft="20dp" />-->
 
-    <Switch
-        android:id="@+id/id_switch2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="5dp"
-        android:backgroundTint="#BEEBF1"
-        android:checked="true"
-        android:text="iPhone XR"
+<!--    <Switch-->
+<!--        android:id="@+id/id_switch2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        android:backgroundTint="#BEEBF1"-->
+<!--        android:checked="true"-->
+<!--        android:text="iPhone XR"-->
 
-        android:textSize="16dp" />
+<!--        android:textSize="16dp" />-->
 
-    <Switch
-        android:id="@+id/id_switch3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="5dp"
-        android:backgroundTint="#DDF2F4"
-        android:checked="true"
-        android:text="Penoil"
-        android:textSize="16dp" />
+<!--    <Switch-->
+<!--        android:id="@+id/id_switch3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        android:backgroundTint="#DDF2F4"-->
+<!--        android:checked="true"-->
+<!--        android:text="Penoil"-->
+<!--        android:textSize="16dp" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

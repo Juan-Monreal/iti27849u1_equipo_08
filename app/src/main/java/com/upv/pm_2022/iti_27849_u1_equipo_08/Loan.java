@@ -22,6 +22,8 @@ public class Loan {
     //TODO: Add field to represent LocalDateTime
     //https://stackoverflow.com/questions/7363112/best-way-to-work-with-dates-in-android-sqlite
 
+    public Loan(){}
+
     public Loan(int id, int inventory_id, int customer_id, boolean status, LocalDateTime loan_datetime) {
         this.id = id;
         this.inventory_id = inventory_id;

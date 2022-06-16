@@ -1,8 +1,11 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_08.fragments;
 
+import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -10,11 +13,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.upv.pm_2022.iti_27849_u1_equipo_08.Customer;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.DbHandler;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.Inventory;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.Loan;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.R;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.adapters.LoansListAdapter;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.CustomerController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.InventoryController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.LoanController;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.FragmentHomeBinding;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,28 +39,22 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
 
     private Button btnAddLoan;
-    private SQLiteDatabase read, write;
+
+    private ListView loansList;
+    private DbHandler dbHandler;
+    private ArrayList<Loan> loans;
+    private ArrayList<Customer> customers;
+    private ArrayList<Inventory> inventories;
+    private SQLiteDatabase write,read;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        /* View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        addLoan = view.findViewById(R.id.addLoan);
-
-        read = new DbHandler(getActivity()).getReadableDatabase();
-        write = new DbHandler(getActivity()).getWritableDatabase();
-
-        addLoan.setOnClickListener( v ->{
-            Toast.makeText(getContext(), "TODO:ADD LOAN", Toast.LENGTH_SHORT).show();
-        });
-
-        return  view; */
 
         // DIFERENTE FORMA PARA SACAR LOS DATOS DE LA INTERFAZ
         binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -62,13 +69,28 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        read = new DbHandler(getActivity()).getReadableDatabase();
-        write = new DbHandler(getActivity()).getWritableDatabase();
+        dbHandler = new DbHandler(view.getContext());
+        loansList = view.findViewById(R.id.loansList);
+        read = dbHandler.getReadableDatabase();
+        write = dbHandler.getWritableDatabase();
+        CustomerController controller = new CustomerController(read);
+        customers = (ArrayList<Customer>) controller.getAll();
 
-        /* btnAddLoan.setOnClickListener( v ->{
-            Toast.makeText(getContext(), "TODO:ADD LOAN", Toast.LENGTH_SHORT).show();
-        }); */
+        InventoryController inventoryController = new InventoryController(read);
+        inventories = (ArrayList<Inventory>) inventoryController.getAllItems();
 
+        LoanController loanController = new LoanController(read);
+        loans = (ArrayList<Loan>) loanController.getAll();
+
+        LoansListAdapter adapter = new LoansListAdapter(
+                (Activity) view.getContext(),
+                loans,
+                dbHandler,
+                customers,
+                inventories
+        );
+
+        loansList.setAdapter(adapter);;
 
         return view;
 

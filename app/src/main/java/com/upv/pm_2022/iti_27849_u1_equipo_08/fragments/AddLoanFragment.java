@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
@@ -20,13 +21,16 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.Customer;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.DbHandler;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.Inventory;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.Loan;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.R;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.adapters.CustomersAdapter;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.CustomerController;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.InventoryController;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.LoanController;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.databinding.AddLoanBinding;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AddLoanFragment extends Fragment {
@@ -76,7 +80,7 @@ public class AddLoanFragment extends Fragment {
                                                                 (Activity) view.getContext(),
                                                                 customers,
                                                                 dbHandler);
-        lvCustomers.setAdapter(customersAdapter);
+        //lvCustomers.setAdapter(customersAdapter);
 
 
 
@@ -84,11 +88,28 @@ public class AddLoanFragment extends Fragment {
         inventories = (ArrayList<Inventory>) inventoryController.getAllItems();
 
 
+
         txtDate.setText(LocalDate.now().toString());
         // Botón para regresar al fragent loans
         btnBack.setOnClickListener(view1 -> NavHostFragment.findNavController(AddLoanFragment.this).navigate(R.id.action_add_loan_to_home));
         btnSave.setOnClickListener( v -> {
-
+            String status = txtStatus.getText().toString();
+            status = String.valueOf(1);
+            String date_loan = txtDate.getText().toString();
+            if (status.isEmpty() || date_loan.isEmpty())
+                Toast.makeText(getContext(), "Please enter valid data", Toast.LENGTH_SHORT).show();
+            else  {
+                LoanController controller = new LoanController(write);
+                date_loan = LocalDateTime.now().toString();
+                Loan loan = new Loan();
+                loan.setStatus(Integer.parseInt(status));
+                loan.setCustomer_id(1);
+                loan.setInventory_id(1);
+                loan.setLoan_datetime(LocalDateTime.now());
+                controller.addLoan(loan);
+                Toast.makeText(getContext(), "Item Added successfully!", Toast.LENGTH_SHORT).show();
+                txtStatus.setText("");
+            }
         });
         return view;
     }

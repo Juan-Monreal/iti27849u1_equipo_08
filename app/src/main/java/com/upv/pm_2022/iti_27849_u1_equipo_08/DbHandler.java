@@ -43,6 +43,7 @@ public class DbHandler extends SQLiteOpenHelper {
             "last_name TEXT" +
             ")";
     private final String loansCreate = "CREATE TABLE Loans (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "inventory_id INTEGER," +
             "customer_id INTEGER," +
             "status INTEGER default 0," +

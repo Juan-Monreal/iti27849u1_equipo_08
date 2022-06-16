@@ -1,14 +1,26 @@
 package com.upv.pm_2022.iti_27849_u1_equipo_08.adapters;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+
+import com.upv.pm_2022.iti_27849_u1_equipo_08.Customer;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.DbHandler;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.Inventory;
 import com.upv.pm_2022.iti_27849_u1_equipo_08.Loan;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.R;
+import com.upv.pm_2022.iti_27849_u1_equipo_08.controllers.LoanController;
 
 import java.util.ArrayList;
 
@@ -19,14 +31,25 @@ public class LoansListAdapter extends BaseAdapter {
     private PopupWindow popupWindow;
     private DbHandler dbHandler;
     private BaseAdapter baseAdapter;
+    private ArrayList<Customer> customers;
+    private ArrayList<Inventory> inventories;
 
-    public LoansListAdapter(Activity context, ArrayList<Loan> loans, DbHandler dbHandler) {
+    public LoansListAdapter(Activity context, ArrayList<Loan> loans, DbHandler dbHandler, ArrayList<Customer> customers, ArrayList<Inventory> inventories) {
         this.context = context;
         this.loans = loans;
         this.dbHandler = dbHandler;
+        this.customers = customers;
+        this.inventories = inventories;
     }
 
-    public static class
+    public static class LoansListContainer {
+        TextView textViewId;
+        TextView textViewCustomer;
+        TextView textViewDate;
+        TextView textViewItem;
+        Switch swStatus;
+        ImageButton btnDelete;
+    }
 
     /**
      * How many items are in the data set represented by this Adapter.
@@ -47,7 +70,7 @@ public class LoansListAdapter extends BaseAdapter {
      */
     @Override
     public Object getItem(int position) {
-        return null;
+        return position;
     }
 
     /**
@@ -58,7 +81,7 @@ public class LoansListAdapter extends BaseAdapter {
      */
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     /**
@@ -79,8 +102,71 @@ public class LoansListAdapter extends BaseAdapter {
      * @param parent      The parent that this view will eventually be attached to
      * @return A View corresponding to the data at the specified position.
      */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        View row = convertView;
+        LayoutInflater inflater = context.getLayoutInflater();
+        LoansListContainer container;
+        if (convertView == null){
+            container = new LoansListContainer();
+            row = inflater.inflate(R.layout.loans_list_item, null, true);
+            container.textViewId = row.findViewById(R.id.textViewId);
+            container.textViewCustomer = row.findViewById(R.id.textViewCustomer);
+            container.textViewDate = row.findViewById(R.id.textViewDate);
+            container.textViewItem = row.findViewById(R.id.textViewItem);
+            container.swStatus = row.findViewById(R.id.swStatus);
+            container.btnDelete = row.findViewById(R.id.btnDelete);
+            row.setTag(container);
+        } else {
+            container = (LoansListContainer) convertView.getTag();
+        }
+
+        container.textViewId.setText(String.valueOf(loans.get(position).getId()));
+        container.textViewCustomer.setText(getCustomerName(loans.get(position).getCustomer_id()));
+        container.textViewDate.setText(String.valueOf(loans.get(position).getLoan_datetimeAsString()));
+        container.textViewItem.setText(getItemName(loans.get(position).getInventory_id()));
+        container.swStatus.setChecked(loans.get(position).isStatus());
+
+
+
+        final int positionPopup = position;
+        container.btnDelete.setOnClickListener( v -> {
+            SQLiteDatabase database = dbHandler.getWritableDatabase();
+            LoanController controller = new LoanController(database);
+            controller.deleteLoan(loans.get(positionPopup));
+            Toast.makeText(context, "Loan deleted!", Toast.LENGTH_SHORT).show();
+            controller.setDb(dbHandler.getReadableDatabase());
+            loans = (ArrayList<Loan>) controller.getAll();
+            notifyDataSetChanged();
+        });
+
+        container.swStatus.setOnClickListener( v -> {
+            SQLiteDatabase database = dbHandler.getWritableDatabase();
+            LoanController controller = new LoanController(database);
+            loans.get(position).setStatus( container.swStatus.isChecked());
+            controller.updateLoan( loans.get(positionPopup));
+            Toast.makeText(context, "Loan Updated!", Toast.LENGTH_SHORT).show();
+            controller.setDb(dbHandler.getReadableDatabase());
+            loans = (ArrayList<Loan>) controller.getAll();
+            notifyDataSetChanged();
+        });
+
+        return row;
+    }
+
+    private String getCustomerName(int customer_id){
+        for (Customer customer: customers) {
+            if (customer.getId() == customer_id)
+                return customer.getName();
+        }
+        return "";
+    }
+    private String getItemName(int inventory_id){
+        for (Inventory inventory: inventories) {
+            if (inventory.getId() == inventory_id)
+                return inventory.getName();
+        }
+        return "";
     }
 }
