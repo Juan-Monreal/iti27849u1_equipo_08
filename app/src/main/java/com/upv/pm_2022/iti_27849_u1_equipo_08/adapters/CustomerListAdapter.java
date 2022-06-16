@@ -120,6 +120,7 @@ public class CustomerListAdapter extends BaseAdapter {
             Toast.makeText(context, "Customer deleted!", Toast.LENGTH_SHORT).show();
             controller.setDb(dbHandler.getReadableDatabase());
             customers = (ArrayList<Customer>) controller.getAll();
+            notifyDataSetChanged();
         });
 
         return row;
