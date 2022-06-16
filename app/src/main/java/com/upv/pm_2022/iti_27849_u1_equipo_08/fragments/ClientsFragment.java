@@ -52,7 +52,11 @@ public class ClientsFragment extends Fragment {
         CustomerController controller = new CustomerController(read);
         customers = (ArrayList<Customer>) controller.getAll();
 
-        CustomerListAdapter adapter = new CustomerListAdapter((Activity) view.getContext(), customers, dbHandler);
+        CustomerListAdapter adapter = new CustomerListAdapter(
+                (Activity) view.getContext(),
+                customers,
+                dbHandler
+        );
         clientsList = view.findViewById(R.id.clientsList);
         clientsList.setAdapter(adapter);
 
