@@ -21,12 +21,13 @@
         android:paddingLeft="20dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="20dp"
-        android:hint="Status"
-        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:hint="1 or 0"
+        android:digits="10"
         android:layout_height="0dp"
         android:inputType="text"
         android:text=""
         android:ems="10"
+        android:maxLength="1"
         android:id="@+id/txtStatus"
         />
 
@@ -52,6 +53,7 @@
         android:layout_marginBottom="20dp"
         android:background="#EEEEEE"
         android:ems="10"
+        android:scrollbars="vertical"
         />
 
     <ListView

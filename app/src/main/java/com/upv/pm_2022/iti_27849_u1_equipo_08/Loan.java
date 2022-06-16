@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -18,6 +19,7 @@ public class Loan {
     private boolean status;
     private LocalDateTime loan_datetime;
     private DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+    private DateTimeFormatter pattern2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     //TODO: Add field to represent LocalDateTime
     //https://stackoverflow.com/questions/7363112/best-way-to-work-with-dates-in-android-sqlite
@@ -69,7 +71,12 @@ public class Loan {
         this.inventory_id = inventory_id;
         this.customer_id = customer_id;
         this.status = status;
-        this.loan_datetime = LocalDateTime.from(pattern.parse(loan_datetime));
+        try {
+            this.loan_datetime = LocalDateTime.from(pattern.parse(loan_datetime));
+        }catch (DateTimeParseException exception){
+            this.loan_datetime = LocalDateTime.from(pattern2.parse(loan_datetime));
+        }
+
     }
 
     public Loan(int id, int inventory_id, int customer_id, int status, String loan_datetime) {
@@ -80,7 +87,11 @@ public class Loan {
             this.status = true;
         else
             this.status = false;
-        this.loan_datetime = LocalDateTime.from(pattern.parse(loan_datetime));
+        try {
+            this.loan_datetime = LocalDateTime.from(pattern.parse(loan_datetime));
+        }catch (DateTimeParseException exception){
+            this.loan_datetime = LocalDateTime.from(pattern2.parse(loan_datetime));
+        }
     }
     public Loan(int inventory_id, int customer_id, int status, String loan_datetime) {
         this.inventory_id = inventory_id;
@@ -89,7 +100,11 @@ public class Loan {
             this.status = true;
         else
             this.status = false;
-        this.loan_datetime = LocalDateTime.from(pattern.parse(loan_datetime));
+        try {
+            this.loan_datetime = LocalDateTime.from(pattern.parse(loan_datetime));
+        }catch (DateTimeParseException exception){
+            this.loan_datetime = LocalDateTime.from(pattern2.parse(loan_datetime));
+        }
     }
 
     public int getId() {
